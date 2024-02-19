@@ -1,4 +1,4 @@
-# ChomCHOB QA Engineer Testing
+# ChomCHOB - QA Engineer Testing
 Repository for submitting tests from the **ChomCHOB QA Engineer Testing**.
 
 
