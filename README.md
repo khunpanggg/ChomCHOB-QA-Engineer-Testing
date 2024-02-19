@@ -3,7 +3,7 @@ Repository for submitting tests from the **ChomCHOB QA Engineer Testing**.
 
 
 ## Section 1 - Manual Testing Skill and Testing Knowledge
-Submit file name >> ```section1_manual_testing.xlsx``` on the main branch **or** you can check in [https://docs.google.com/spreadsheets/d/16V0DMmheXADWtrTlDFNukIKXPg8-frn0X_iAeMuXeWo/edit#gid=1664912386](https://docs.google.com/spreadsheets/d/16V0DMmheXADWtrTlDFNukIKXPg8-frn0X_iAeMuXeWo/edit?usp=sharing)
+Submit file name >> ```section1_manual_testing.xlsx``` on the main branch **or** you can check in the link here:  [https://docs.google.com/spreadsheets/d/16V0DMmheXADWtrTlDFNukIKXPg8-frn0X_iAeMuXeWo/edit#gid=1664912386](https://docs.google.com/spreadsheets/d/16V0DMmheXADWtrTlDFNukIKXPg8-frn0X_iAeMuXeWo/edit?usp=sharing)
 ## Section 2: Automate Testing WEB Skills
 This script use the following features:
 - Language: Python 3.12.1
