@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "8018cacc-7cf8-4b46-a949-818218f096a8",
+		"name": "Request API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33042586"
+	},
+	"item": [
+		{
+			"name": "GET All User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test status code",
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Test if there are no errors in the response",
+							"pm.test(\"No errors in the response\", function(){",
+							"    pm.response.to.not.be.error;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "inherit"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET User Info",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test status code",
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Test if there are no errors in the response",
+							"pm.test(\"No errors in the response\", function(){",
+							"    pm.response.to.not.be.error;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "inherit"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/1",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST - Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Extract user id from the response and set it as an environment variable",
+							"var responseBody = pm.response.json();",
+							"",
+							"if (responseBody && responseBody.hasOwnProperty('id')) { ",
+							"    var userId = responseBody.id;",
+							"    pm.environment.set(\"userId\", userId);",
+							"} else {",
+							"    console.error(\"User ID not found in the response.\");",
+							"}",
+							"",
+							"// Test status code",
+							"pm.test(\"Status code is 201\", function(){",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"// Test presence of 'id' property in the response",
+							"pm.test(\"Verify the presence of the 'id' property in the response\", function () {",
+							"    pm.response.to.have.jsonBody('id');",
+							"});",
+							"",
+							"// Test if there are no errors in the response",
+							"pm.test(\"No errors in the response\", function(){",
+							"    pm.response.to.not.be.error;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Nichapat Kachacheewa\",\n    \"job\": \"QA Engineer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH - Update User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test status code",
+							"pm.test(\"Status code is 200\", function(){",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Test verify name is updated",
+							"pm.test(\"Verify name is updated\", function () {",
+							"    var responseBody = pm.response.json();",
+							"    pm.expect(responseBody.name).to.equal(\"Pang\");",
+							"});",
+							"",
+							"// Test if there are no errors in the response",
+							"pm.test(\"No errors in the response\", function(){",
+							"    pm.response.to.not.be.error;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pang\",\n    \"job\": \"QA Engineer\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/{{userId}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE - Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Test status code",
+							"pm.test(\"Status code is 204\", function(){",
+							"    pm.response.to.have.status(204);",
+							"});",
+							"",
+							"// Test if response body is empty",
+							"pm.test(\"Response body is empty\", function(){",
+							"    pm.expect(pm.response.text()).to.be.empty;",
+							"});",
+							"",
+							"// Test if there are no errors in the response",
+							"pm.test(\"No errors in the response\", function(){",
+							"    pm.response.to.not.be.error;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users/{{userId}}",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "userId",
+			"value": "userId"
+		}
+	]
+}
