@@ -13,3 +13,8 @@ This script use the following features:
 
 Submit file name >> ```section2_web.py``` on the main branch.
 ## Section 3: Automate Testing API Skills
+Request API and automated testing by using Postman
+
+Submit file name >>
+1. ```Request_API_Collection.postman_collection.json```
+2. ```Test_Production.postman_environment.json```
