@@ -23,12 +23,12 @@ from selenium.common.exceptions import TimeoutException
 import time
 import pytest
 
-# ====== For test in Chrome web driver ======
+""" For running tests with Chrome web driver """
 # options = webdriver.ChromeOptions()
 # options.add_experimental_option("detach", True)
 # driver = webdriver.Chrome(options=options)
 
-# ====== For test in Edge web driver ======
+""" For running tests with Edge web driver """
 options = webdriver.EdgeOptions()
 options.add_experimental_option("detach", True)
 driver = webdriver.Edge(options=options)
@@ -54,8 +54,12 @@ def test_click_link_cartoon():
     try:
         # Wait for the overlay to disappear
         WebDriverWait(driver, 10).until(EC.invisibility_of_element_located((By.CLASS_NAME, "modal-overlay")))
+        # Click accept cookie
+        accept_cookie_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//*[@id='top']/main/div[4]/div/small/small/div/div[1]/button/a[text()='ยอมรับ']")))
+        accept_cookie_element.click()
+        WebDriverWait(driver, 10).until(EC.invisibility_of_element_located((By.CLASS_NAME, "cookie-policy show")))
         # Click link cartoon page
-        link_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//div[@class='nav-container']//a[@href='https://www.nejavu.com/cartoon']")))
+        link_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[@href='https://www.nejavu.com/cartoon']")))
         link_element.click()
     except TimeoutException:
         print("Timed out waiting for element to be clickable.")
@@ -126,10 +130,10 @@ def test_delete_item():
         try:
             delete_item_element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//div[@id='cart']//div[@class='cart-item-table']//a[@class='delete-item']")))
             delete_item_element.click()
-            # click pop-up
+            # Click pop-up
             confirm_to_delete_element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//div[@aria-labelledby='swal2-title' and @aria-describedby='swal2-content']//button[text()='ใช่ ลบรายการ']")))
             confirm_to_delete_element.click()
-            # wait for page refresh
+            # Wait for page refresh
             WebDriverWait(driver, 10).until(staleness_of(driver.find_element(By.XPATH, "//div[@id='cart']")))
         except Exception as e:
             print(f"An error occurred: {e}")
