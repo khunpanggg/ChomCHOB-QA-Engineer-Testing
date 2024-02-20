@@ -10,9 +10,6 @@ This script use the following features:
 - Library: Selenium 4.17.2
 - Framework: Pytest 8.0.1
 
-Test Environment:
-- Tested on both macOS and Windows
-
 Submit file name >> ```section2_web.py``` on the main branch.
 ## Section 3: Automate Testing API Skills
 Request API and automated testing by using Postman
