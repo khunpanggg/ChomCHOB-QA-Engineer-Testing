@@ -3,13 +3,18 @@
 Section 2: Automate Testing WEB Skills
 ===============================================
 
-This script is written by Nichapat.
+This script contains web automation tests using Selenium and Pytest.
 
 Features:
 - Language: Python 3.12.1
 - Library: Selenium 4.17.2
 - Framework: Pytest 8.0.1
 
+Test Environment:
+- Tested on both macOS and Windows
+
+===============================================
+Written by Nichapat.
 ===============================================
 """
 
