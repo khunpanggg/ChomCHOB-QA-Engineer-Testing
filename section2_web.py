@@ -6,7 +6,7 @@ Section 2: Automate Testing WEB Skills
 This script contains web automation tests using Selenium and Pytest.
 
 Features:
-- Language: Python 3.12.1
+- Language: Python 3.9.6
 - Library: Selenium 4.17.2
 - Framework: Pytest 8.0.1
 
