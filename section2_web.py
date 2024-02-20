@@ -59,8 +59,8 @@ def test_click_link_cartoon():
         accept_cookie_element.click()
         WebDriverWait(driver, 10).until(EC.invisibility_of_element_located((By.CLASS_NAME, "cookie-policy show")))
         # Click link cartoon page
-        link_element = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//a[@href='https://www.nejavu.com/cartoon']")))
-        link_element.click()
+        link_element = driver.find_element(By.XPATH, "//a[@href='https://www.nejavu.com/cartoon']//span[text()='การ์ตูน']")
+        driver.execute_script("arguments[0].click();", link_element)
     except TimeoutException:
         print("Timed out waiting for element to be clickable.")
     except Exception as e:
