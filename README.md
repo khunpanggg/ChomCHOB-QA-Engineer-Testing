@@ -7,7 +7,7 @@ Submit file name >> ```section1_manual_testing.xlsx``` on the main branch **or**
 ## Section 2: Automate Testing WEB Skills
 This script use the following features:
 - Language: Python 3.9.6
-- Library: Selenium 4.17.2
+- Library: Selenium 4.18.1
 - Framework: Pytest 8.0.1
 
 Submit file name >> ```section2_web.py``` on the main branch.
